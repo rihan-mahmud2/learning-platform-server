@@ -11,10 +11,14 @@ app.get("/", (req, res) => {
 
 app.get("/course", (req, res) => {
   res.send(courses);
-  console.log(courses);
 });
 
 app.get("/details/:id", (req, res) => {
+  const id = req.params.id;
+  const detailsInf = courses.find((detail) => id == detail.id);
+  res.send(detailsInf);
+});
+app.get("/course/:id", (req, res) => {
   const id = req.params.id;
   const detailsInf = courses.find((detail) => id == detail.id);
   res.send(detailsInf);
